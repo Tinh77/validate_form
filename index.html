@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="#" name="register-form">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control">
+            <span class="danger-text hidden-text"></span>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control">
+            <span class="danger-text hidden-text"></span>
+        </div>
+        <div class="form-group">
+            <label>Fullname</label>
+            <input type="text" name="fullName" class="form-control">
+            <span class="danger-text hidden-text"></span>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="email" class="form-control">
+            <span class="danger-text hidden-text"></span>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <input type="button" name="btn-submit" class="form-control" value="Submit">
+            <input type="reset" name="btn-reset" class="form-control" value="Reset">
+        </div>
+    </form>
+    <script >
+    	var btn_submit = document.forms["register-form"]["btn-submit"];
+		btn_submit.onclick = function() {
+			//validate trường username
+			var txtUsername = document.forms["register-form"]["username"];
+			var msgUsername = txtUsername.nextElementSibling;
+				if (txtUsername == null || txtUsername.value.length == 0) {
+					msgUsername.innerHTML = "* UserName của bạn không được để trống !";
+					msgUsername.classList.remove("hidden-text");
+					msgUsername.style = "color:red";
+				}else if (txtUsername.value.length < 5) {
+					msgUsername.innerHTML = "* UserName của bạn quá ngắn !";
+					msgUsername.classList.remove("hidden-text");
+					msgUsername.style = "color:red";
+				}else if(txtUsername.value.length > 15) {
+					msgUsername.innerHTML = "* UserName của bạn quá dài !";
+					msgUsername.classList.remove("hidden-text");
+					msgUsername.style = "color:red";
+				}else{
+					msgUsername.classList.add("hidden-text");
+				}
+			//validate trường Password
+			var txtPassword = document.forms["register-form"]["password"];
+			var msgPassword = txtPassword.nextElementSibling;
+				if (txtPassword == null || txtPassword.value.length == 0) {
+					msgPassword.innerHTML = "* Password của bạn không được để trống !";
+					msgPassword.classList.remove("hidden-text");
+					msgPassword.style = "color:red";
+				}else if (txtPassword.value.length < 8) {
+					msgPassword.innerHTML = "* Password của bạn quá ngắn !";
+					msgPassword.classList.remove("hidden-text");
+					msgPassword.style = "color:red";
+				}else{
+					msgPassword.classList.add("hidden-text");
+				}
+			//validate trường FullName
+			var txtFullName = document.forms["register-form"]["fullName"];
+			var msgFullName = txtFullName.nextElementSibling;
+				if (txtFullName == null || txtFullName.value.length == 0) {
+					msgFullName.innerHTML = "* FullName của bạn không được để trống !";
+					msgFullName.classList.remove("hidden-text");
+					msgFullName.style = "color:red";
+				}else if (txtFullName.value.length < 10) {
+					msgFullName.innerHTML = "* FullName của bạn quá ngắn !";
+					msgFullName.classList.remove("hidden-text");
+					msgFullName.style = "color:red";
+				}else if (txtFullName.value.length > 20) {
+					msgFullName.innerHTML = "* FullName của bạn quá dài !";
+					msgFullName.classList.remove("hidden-text");
+					msgFullName.style = "color:red";
+				}else{
+					msgFullName.classList.add("hidden-text");
+				}
+				//validate trường email
+			var txtEmail = document.forms["register-form"]["email"];
+			var msgEmail = txtEmail.nextElementSibling;
+				if (txtEmail == null || txtEmail.value.length == 0) {
+					msgEmail.innerHTML = "* Email của bạn không được để trống !";
+					msgEmail.classList.remove("hidden-text");
+					msgEmail.style = "color:red";
+				}else{
+					msgEmail.classList.add("hidden-text");
+				}
+		}
+    </script>
+</body>
+</html>
